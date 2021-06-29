@@ -1,0 +1,45 @@
+ from users_app.models import *
+
+>>> Users.objects.create(first_name="Stephen",last_name="Curry",email_address="ChefCurry@GoldenState.com",age=33) 
+<Users: Users object (1)>
+
+>>> Users.objects.create(first_name="LeBron",last_name="James",email_address="GOATJames@Lakers.com",age=36)       
+<Users: Users object (2)>
+
+>>> Users.objects.create(first_name="Cristiano",last_name="Ronaldo",email_address="GoatCR7@RealMadrid.com",age=36)
+<Users: Users object (3)>
+
+>>> Users.object.all()
+
+>>> Users.objects.all()
+
+<QuerySet [<Users: Users object (1)>, <Users: Users object (2)>, <Users: Users object (3)>]>
+
+>>> Users.objects.last()
+
+<Users: Users object (3)>
+
+>>> Users.objects.first()
+
+<Users: Users object (1)>
+
+>>> c = Users.objects.get(id=3)
+
+>>> c.last_name = "Pancakes"  
+
+>>> c.save()
+
+>>> c = Users.objects.get(id=2)
+
+>>> c.delete()
+
+>>> Users.objects.all().order_by("first_name")
+
+<QuerySet [<Users: Users object (3)>, <Users: Users object (1)>]>
+
+>>> Users.objects.all().order_by("first_name").first_name
+
+>>> Users.objects.all().order_by("-first_name")    
+
+<QuerySet [<Users: Users object (1)>, <Users: Users object (3)>]>
+>>>
