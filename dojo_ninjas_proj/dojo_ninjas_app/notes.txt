@@ -1,0 +1,134 @@
+>> from dojo_ninjas_app.models import *
+
+>>> dojos.objects.create(name="Irvin's Dojo", city="Oakland", state="CA")
+
+<dojos: dojos object (1)>
+
+>>> dojos.objects.create(name="Anton's Dojo", city="Berkeley", state="CA")
+
+<dojos: dojos object (2)>
+
+>>> dojos.objects.create(name="Evelynn's Dojo", city="San Francisco", state="CA")
+
+<dojos: dojos object (3)>
+>>> c = dojos.objects.get(id=1)
+
+>>> c.delete()
+
+(1, {'dojo_ninjas_app.ninjas': 0, 'dojo_ninjas_app.dojos': 1})
+
+>>> c = dojos.objects.get(id=2) 
+
+>>> c.delete()
+
+(1, {'dojo_ninjas_app.ninjas': 0, 'dojo_ninjas_app.dojos': 1})
+
+>>> c = dojos.objects.get(id=3) 
+
+>>> c.delete()
+
+(1, {'dojo_ninjas_app.ninjas': 0, 'dojo_ninjas_app.dojos': 1})
+
+>>> dojos.objects.all()
+
+<QuerySet []>
+
+>>> dojos.objects.create(name="Irvin's Dojo", city="Oakland", state="CA")
+
+<dojos: dojos object (4)>
+
+>>> dojos.objects.create(name="Anton's Dojo", city="Berkeley", state="CA")
+
+<dojos: dojos object (5)>
+
+>>> dojos.objects.create(name="Evelynn's Dojo", city="San Francisco", state="CA")
+
+<dojos: dojos object (6)>
+
+>>> dojo = dojos.objects.get(id=4) 
+
+>>> ninjas.objects.create(first_name="Arnold", last_name="Johnson", dojo=dojo)  
+
+<ninjas: ninjas object (1)>
+
+>>> ninjas.objects.create(first_name="Irvin", last_name="Campos", dojo=dojo)   
+
+<ninjas: ninjas object (2)>
+
+>>> ninjas.objects.create(first_name="Stephen", last_name="Curry", dojo=dojo)  
+
+<ninjas: ninjas object (3)>
+
+>>> dojotwo= dojos.objects.get(id=5)
+
+>>> ninjas.objects.create(first_name="Henry", last_name="Gains", dojo=dojotwo)  
+
+<ninjas: ninjas object (4)>
+
+>>> ninjas.objects.create(first_name="Floyd", last_name="MayWeather", dojo=dojotwo)  
+
+<ninjas: ninjas object (5)>
+
+>>> ninjas.objects.create(first_name="Ryan", last_name="Garcia", dojo=dojotwo)   
+
+<ninjas: ninjas object (6)>
+
+>>> dojothree= dojos.objects.get(id=6)
+
+>>> ninjas.objects.create(first_name="LeBron", last_name="James", dojo=dojothree)  
+
+<ninjas: ninjas object (7)>
+
+>>> ninjas.objects.create(first_name="Kevin", last_name="Durant", dojo=dojothree) 
+
+<ninjas: ninjas object (8)>
+
+>>> ninjas.objects.create(first_name="Kyrie", last_name="Irving", dojo=dojothree) 
+
+<ninjas: ninjas object (9)>
+
+ninjas.objects.filter(dojo=dojo)
+
+<QuerySet [<ninjas: ninjas object (1)>, <ninjas: ninjas object (2)>, <ninjas: ninjas object (3)>]>
+
+>>> m= ninjas.objects.filter(dojo=dojo)
+
+>>> for ninja in m:
+...     print(ninja.first_name)
+
+... 
+
+Arnold
+
+Irvin
+
+Stephen
+
+>>> unicorn= ninjas.objects.filter(dojo=x)
+
+>>> for i in unicorn:
+
+...     print(i.first_name)
+
+... 
+
+LeBron
+
+Kevin
+
+Kyrie
+
+>>> horse= ninjas.objects.last()
+
+>>> print(horse)
+
+ninjas object (9)
+
+>>>
+
+>>> print(horse.first_name)
+
+Kyrie
+
+>>> exit()
+
