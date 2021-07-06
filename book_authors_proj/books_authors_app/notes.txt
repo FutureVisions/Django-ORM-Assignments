@@ -1,0 +1,100 @@
+C_Sharp = books.objects.create(title="C Sharp", desc="easy to use.")
+
+Java = books.objects.create(title="Java", desc="useful.")    
+
+>>> Python = books.objects.create(title="Python", desc="best language.")
+
+>>> PHP = books.objects.create(title="PHP", desc="fun.") 
+
+>>> Ruby = books.objects.create(title="Ruby", desc="lightwork...")
+
+>>> Jane_Austen = authors.objects.create(first_name="Jane", last_name="Austen")
+
+>>> Emily_Dickinson = authors.objects.create(first_name="Emily", last_name="Dickinson")
+
+>>> Fyodor_Dostoevsky = authors.objects.create(first_name="Fyodor", last_name="Dostoevsky")
+
+>>> William_Shakespeare = authors.objects.create(first_name="William", last_name="Shakespeare")
+
+>>> Lau_Tzu = authors.objects.create(first_name="Lau", last_name="Tzu") 
+
+>>> C_Sharp.title="C#"
+
+>>> C_Sharp.save()  
+
+>>> William_Shakespeare = authors.objects.get(id=4)
+
+>>> William_Shakespeare.first_name="Bill"
+
+>>> William_Shakespeare.save() 
+
+>>> Jane_Austen= authors.objects.get(id=1)
+
+>>> book_one = books.objects.get(id=1)
+
+>>> book_two = books.objects.get(id=2) 
+
+>>> book_one.author.add(Jane_Austen)
+
+>>> book_two.author.add(Jane_Austen)
+
+>>> book_three = books.objects.get(id=3)
+
+>>> Emily_Dickinson = authors.objects.get(id=2)
+
+>>> book_one.author.add(Emily_Dickinson)
+
+>>> book_two.author.add(Emily_Dickinson) 
+
+>>> book_three.author.add(Emily_Dickinson)
+
+>>> book_four = books.objects.get(id=4)
+
+>>> Fyodor_Dostoevsky = authors.objects.get(id=3)
+
+>>> book_one.author.add(Fyodor_Dostoevsky)
+
+>>> book_two.author.add(Fyodor_Dostoevsky) 
+
+>>> book_three.author.add(Fyodor_Dostoevsky)
+
+>>> book_four.author.add(Fyodor_Dostoevsky)
+
+>>> William_Shakespeare = authors.objects.get(id=4)
+
+>>> book_five = books.objects.get(id=5)
+
+>>> book_one.author.add(William_Shakespeare)
+
+>>> book_two.author.add(William_Shakespeare) 
+
+>>> book_three.author.add(William_Shakespeare) 
+
+>>> book_four.author.add(William_Shakespeare)  
+
+>>> book_five.author.add(William_Shakespeare) 
+
+>>> book_three.author.all()
+
+<QuerySet [<authors: authors object (2)>, <authors: authors object (3)>, <authors: authors object (4)>]>
+
+>>> book_three.author.get(id=2)
+
+<authors: authors object (2)>
+
+>>> book_three.delete()    
+
+(4, {'books_authors_app.authors_book': 3, 'books_authors_app.books': 1})
+
+>>> Lau_Tzu = authors.objects.get(id=5) 
+
+>>> book_two.author.add(Lau_Tzu)
+
+>>> Fyodor_Dostoevsky.book.all()  
+
+<QuerySet [<books: books object (1)>, <books: books object (2)>, <books: books object (4)>]>
+
+>>> book_five.author.all()
+
+<QuerySet [<authors: authors object (4)>]>
+
